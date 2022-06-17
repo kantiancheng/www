@@ -139,10 +139,24 @@
         #live2d:active {
             cursor: grabbing;
         }
+        
+        #playv {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background-color: #000000;
+            z-index: 100;
+        }
     </style>
 </head>
 
-<body class="text-center">
+<body id="bodd" class="text-center">
+    <video id="playv">
+        <source preload src="./registered.mp4" type="video/mp4">
+    </video>
+    <script>
+        document.getElementById("playv").hidden = true;
+    </script>
     <form class="form-signin" method="post">
         <div id="stage">
             <div id="inner">
@@ -329,10 +343,26 @@
                 user = await user.save();
                 if (user !== null) {
                     // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
-                    alert(
-                        `恭喜你新用户！, ${user.get("username")}`
-                    );
-                    window.location = "./login.html";
+                    //播放动画
+                    localStorage.setItem('username', document.getElementById("username").value);
+                    localStorage.setItem('userpass', document.getElementById("password").value);
+                    if (
+                        navigator.userAgent.match(/Mobi/i) ||
+                        navigator.userAgent.match(/Android/i) ||
+                        navigator.userAgent.match(/iPhone/i)
+                    ) {
+                        // 当前设备是移动设备
+                        document.getElementById("playv").style.transform = "rotate(90deg)";
+                        document.getElementById("playv").style.height = "100%";
+                        document.getElementById("playv").style.width = "200%";
+                    }
+                    document.getElementById("playv").hidden = false;
+                    var video = document.getElementById("playv");
+                    video.playbackRate = 1.5;
+                    video.play();
+                    video.addEventListener('ended', function() {
+                        window.location = "./login.html";
+                    }, false);
                 }
             } catch (error) {
                 alert(`Error: ${error.message}`);
