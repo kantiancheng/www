@@ -174,7 +174,7 @@
         </div>
         <h1 class="h3 mb-3 fw-normal">答案注册平台</h1>
         <label for="room" class="sr-only">用户名</label>
-        <input type="text" name="room" id="cemail" class="form-control" placeholder="用户名" required autofocus>
+        <input type="text" name="room" id="uname" class="form-control" placeholder="用户名" required autofocus>
         <label for="pass" class="sr-only">邮箱</label>
         <input type="email" name="pass" id="email" class="form-control" placeholder="邮箱" required>
         <label for="room" class="sr-only">密码</label>
@@ -322,7 +322,7 @@
         function clicki() {
             //cemail
             //password
-            if (document.getElementById("cemail").value != "" && document.getElementById("cemail").value != null && document.getElementById("password").value != "" && document.getElementById("password").value != null && document.getElementById("email").value != "" && document.getElementById("email").value != null && document.getElementById("cpassword").value != "" && document.getElementById("cpassword").value != null) {
+            if (document.getElementById("uname").value != "" && document.getElementById("uname").value != null && document.getElementById("password").value != "" && document.getElementById("password").value != null && document.getElementById("email").value != "" && document.getElementById("email").value != null && document.getElementById("cpassword").value != "" && document.getElementById("cpassword").value != null) {
                 createParseUser();
             }
         }
@@ -333,7 +333,7 @@
             // Creates a new Parse "User" object, which is created by default in your Parse app
             let user = new Parse.User();
             // Set the input values to the new "User" object
-            user.set("cemail", document.getElementById("cemail").value);
+            user.set("username", document.getElementById("uname").value);
             user.set("email", document.getElementById("email").value);
             user.set("cemail", document.getElementById("email").value);
             user.set("password", document.getElementById("password").value);
@@ -344,8 +344,9 @@
                 if (user !== null) {
                     // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
                     //播放动画
-                    localStorage.setItem('cemail', document.getElementById("cemail").value);
+                    localStorage.setItem('cemail', document.getElementById("email").value);
                     localStorage.setItem('userpass', document.getElementById("password").value);
+                    localStorage.setItem('uname', document.getElementById("uname").value);
                     if (
                         navigator.userAgent.match(/Mobi/i) ||
                         navigator.userAgent.match(/Android/i) ||
