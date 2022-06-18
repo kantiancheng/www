@@ -21,3 +21,12 @@ function loade() {
     uname = localStorage.getItem('uname');
     document.getElementById("uname").innerHTML = uname;
 }
+
+function clearer() {
+    if (confirm("确认退出吗?!") == true) {
+        localStorage.clear();
+        location.reload();
+    } else {
+
+    }
+}
