@@ -1,7 +1,10 @@
 .uname {
+    right: 5px;
+    top: 3px;
+    border-radius: 4px;
     position: fixed;
-    font-size: x-large;
-    height: calc(6vh);
+    font-size: xx-large;
+    background-color: rgb(99, 99, 99);
 }
 
 h1 {
