@@ -3,66 +3,12 @@
 
 <head>
     <script>
-        alert("新版推出！");
         window.location = "./login.html";
     </script>
-    <script type="text/javascript">
-        var namee;
-        if (localStorage.getItem("name") != null) {
-            alert(localStorage.getItem("name") + '欢迎回来！');
-        } else {
-            password();
-        }
 
-        function password() {
-            var p_ok;
-            var p$ = "母猪塞克";
-            for (var i = 0; i < 90000000000; i++) {
-                var pass = prompt("请输入密码:");
-                if (pass == p$) {
-                    namee = prompt("请输入昵称:");
-                    alert(namee + "欢迎");
-                    localStorage.setItem("name", namee);
-                    break;
-                } else {
-                    alert("密码错误！");
-                }
-            }
-
-        }
-    </script>
-    <style>
-        h1,
-        h2 {
-            text-align: center;
-        }
-        
-        .main {
-            text-align: center;
-            margin: 0 auto;
-        }
-        
-        .main>img {
-            width: 80%;
-        }
-    </style>
-    <meta charset="utf-8">
-    <title>WWW答案</title>
 </head>
 
 <body>
-    <h1>
-        答案如下
-    </h1>
-    <h2 style="color: red;">
-        -Create BY: TonyKan
-    </h2>
-
-    <div class="main">
-        <img src="./1.png">
-        <img src="./2.png">
-        <img src="./3.png">
-    </div>
 
 </body>
 
