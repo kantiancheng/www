@@ -160,7 +160,7 @@
         </div>
         <h1 class="h3 mb-3 fw-normal">答案登陆平台</h1>
         <label for="room" class="sr-only">邮箱</label>
-        <input type="text" name="room" id="cemail" class="form-control" placeholder="邮箱" required autofocus>
+        <input type="text" name="room" id="email" class="form-control" placeholder="邮箱" required autofocus>
         <label for="pass" class="sr-only">密码</label>
         <input type="password" name="pass" id="password" class="form-control" placeholder="密码" required>
         <div class="checkbox mb-4">
@@ -307,7 +307,7 @@
         function clicki() {
             //cemail
             //password
-            if (document.getElementById("cemail").value != "" && document.getElementById("cemail").value != null && document.getElementById("password").value != "" && document.getElementById("password").value != null) {
+            if (document.getElementById("email").value != "" && document.getElementById("email").value != null && document.getElementById("password").value != "" && document.getElementById("password").value != null) {
                 retrieveUser();
             }
         }
@@ -318,23 +318,27 @@
             const query = new Parse.Query("User");
             try {
                 //Query the soccerPlayers object using the player name you have copied
-                var cemail = document.getElementById("cemail").value;
-                query.equalTo("cemail", document.getElementById("cemail").value);
+                var cemail = document.getElementById("email").value;
+                query.equalTo("cemail", document.getElementById("email").value);
                 const results = await query.find();
                 // Do something with the returned Parse.Object values
                 for (let i = 0; i < results.length; i++) {
                     const object = results[i];
                     // var uid = object.id;
                     var Password = object.get("cpassword");
+                    var uname = object.get("username");
                     var rPassword = document.getElementById("password").value;
                     if (rPassword == Password) {
                         if (document.getElementById("remenber").checked == true) {
                             localStorage.setItem('cemail', cemail);
                             localStorage.setItem('userpass', Password);
+                            localStorage.setItem('uname', uname);
                         } else {
                             localStorage.setItem('cemail', null);
                             localStorage.setItem('userpass', null);
+                            localStorage.setItem('uname', null);
                         }
+                        window.location = "./main.html";
                     }
 
                 }
@@ -344,11 +348,11 @@
         }
 
         function cookiei() {
-            var uname = localStorage.getItem("cemail");
+            var cemail = localStorage.getItem("cemail");
             var upass = localStorage.getItem("userpass");
-            document.getElementById("cemail").value = uname;
+            document.getElementById("email").value = cemail;
             document.getElementById("password").value = upass;
-            if (uname != null || upass != null) {
+            if (cemail != null || upass != null) {
                 document.getElementById("remenber").checked = true;
             }
         }
