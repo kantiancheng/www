@@ -1,37 +1,417 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <script src="./main.js"></script>
     <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-    <title> wordly wise 3000 Grade 8</title>
+    <title>Wordly Wise 3000 Grade 8</title>
     <link href="./styles.css" rel="stylesheet">
 </head>
 
-<body onload="loade();">
-    <h1>
-        wordly wise 3000 <strong><u>Grade 8</u></strong>
-    </h1>
-
-    <div class="uname" id="uname">
-        用户名
+<body>
+    <div class="main" class="back">
+        <br />
+        <br />
+        <div class="title_div">
+            <a contentEditable="true" id="tiname" oninput="tchenge();">Wordly Wise 3000 Grade 8</a>
+            <br />
+            <br />
+            <div class="table_div">
+                <div id="table-scroll" class="table-scroll">
+                    <div class="table-wrap">
+                        <table class="main-table" id="table" oninput="chenge();">
+                            <thead>
+                                <tr id="top_bar">
+                                    <th class="fixed-side" scope="col" style="background-color: rgb(70, 70, 70); color: aliceblue;">大题/小题</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">1</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">2</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">3</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">4</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">5</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">6</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">7</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">8</th>
+                                    <th style="background-color: rgb(70, 70, 70); color: aliceblue;" contenteditable="true" scope="col">9</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 1</th>
+                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col">ad</th>
+                                        <th contenteditable="true" scope="col">cb</th>
+                                        <th contenteditable="true" scope="col">bd</th>
+                                        <th contenteditable="true" scope="col">cb</th>
+                                        <th contenteditable="true" scope="col">ba</th>
+                                        <th contenteditable="true" scope="col">cb</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col">excruciating</th>
+                                        <th contenteditable="true" scope="col">brusqueness</th>
+                                        <th contenteditable="true" scope="col">turbulent</th>
+                                        <th contenteditable="true" scope="col">rebuffed</th>
+                                        <th contenteditable="true" scope="col">avid</th>
+                                        <th contenteditable="true" scope="col">resilient</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col">a</th>
+                                        <th contenteditable="true" scope="col">ac</th>
+                                        <th contenteditable="true" scope="col">abc</th>
+                                        <th contenteditable="true" scope="col">bcd</th>
+                                        <th contenteditable="true" scope="col">ab</th>
+                                        <th contenteditable="true" scope="col">bc</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1D</th>
+                                        <th contenteditable="true" scope="col">brusque</th>
+                                        <th contenteditable="true" scope="col">abrupt</th>
+                                        <th contenteditable="true" scope="col">reject</th>
+                                        <th contenteditable="true" scope="col">emulate</th>
+                                        <th contenteditable="true" scope="col">despicable</th>
+                                        <th contenteditable="true" scope="col">turbulent</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 2</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col">C,C,I,I</th>
+                                        <th contenteditable="true" scope="col">C,I,C,I</th>
+                                        <th contenteditable="true" scope="col">I,C,C,C</th>
+                                        <th contenteditable="true" scope="col">I,C,C,I</th>
+                                        <th contenteditable="true" scope="col">I,C,C,I</th>
+                                        <th contenteditable="true" scope="col">C,C,C,I</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col">acd</th>
+                                        <th contenteditable="true" scope="col">d</th>
+                                        <th contenteditable="true" scope="col">bc</th>
+                                        <th contenteditable="true" scope="col">bd</th>
+                                        <th contenteditable="true" scope="col">cd</th>
+                                        <th contenteditable="true" scope="col">b</th>
+                                        <th contenteditable="true" scope="col"></th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col">ab</th>
+                                        <th contenteditable="true" scope="col">bd</th>
+                                        <th contenteditable="true" scope="col">ac</th>
+                                        <th contenteditable="true" scope="col">cd</th>
+                                        <th contenteditable="true" scope="col">bc</th>
+                                        <th contenteditable="true" scope="col">abd</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 3</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1D</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 4</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 5</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1D</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 6</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" colspan="10" scope="col" style="background-color: rgb(63, 63, 63); color: rgb(255, 255, 255);">lesson 7</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1A</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1B</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th class="fixed-side" scope="col" style="background-color: rgb(133, 133, 133);">1C</th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                        <th contenteditable="true" scope="col"> </th>
+                                    </tr>
+                                </tbody>
+                                <!--生成区域-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div style="color: rgb(255, 255, 255); background-color: rgb(255, 0, 0); right: 10%;" class="uname" onclick="clearer();">
-        退出登录
-    </div>
-
-    <div style="top: 7%; background-color: rgb(33, 33, 255); color: rgb(255, 255, 255);" class="uname" onclick="window.location='./main.html'">
-        返回
-    </div>
-
-    <div class="main">
-        <img src="./img/0001_1.png" class="imgi">
-        <img src="./img/0001_2.png" class="imgi">
-        <img src="./img/0001_3.png" class="imgi">
-    </div><br>
-
 </body>
 
 </html>
