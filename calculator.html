@@ -56,9 +56,14 @@
 </head>
 
 <body onload="loadee();">
+
+    <div id="inform" class="inform">
+        <a id="inform_in" class="inform_in"></a>
+    </div>
+
     <h1>
-        </a id="coc">计算器
-        <a> <strong><u>Math</u></strong>
+        <a id="cocu">计算器
+        </a> <strong><u>Math</u></strong>
     </h1>
 
     <div class="uname" id="uname">
@@ -476,13 +481,13 @@
                 document.title = "Calculator";
                 document.getElementById("logout").innerHTML = 'logout';
                 document.getElementById("goback").innerHTML = 'GoBack';
-                document.getElementById("coc").innerHTML = "Calculator";
+                document.getElementById("cocu").innerHTML = "Calculator";
             }
             if (languagee == "CN") {
                 document.title = "数学计算器";
                 document.getElementById("logout").innerHTML = '退出登录';
                 document.getElementById("goback").innerHTML = '返回';
-                document.getElementById("coc").innerHTML = "计算器";
+                document.getElementById("cocu").innerHTML = "计算器";
             }
         }
     </script>
