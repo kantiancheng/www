@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <script>
+        var pagee = "no";
+    </script>
     <meta charset="UTF-8">
     <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +12,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
     <script src="https://fastly.jsdelivr.net/gh/kantiancheng/live2d-widget@master/live2d.min.js"></script>
+    <script src="./main.js"></script>
     <style>
+        .inform {
+            position: fixed;
+            text-align: center;
+            width: auto;
+            background-color: rgba(0, 0, 0, 0.606);
+            z-index: 10;
+            top: 18%;
+            left: 50%;
+            transform: translateX(-50%);
+            /* transform: rotate(60deg);*/
+        }
+        
+        .inform_in {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 3px;
+            margin-bottom: 3px;
+            font-size: xx-large;
+            color: rgb(255, 255, 255);
+        }
+        
+        .language {
+            background-color: rgb(0, 68, 255);
+            z-index: 10;
+            left: 1%;
+            top: 1%;
+            border-radius: 4px;
+            position: fixed;
+            font-size: xx-large;
+            color: rgb(255, 255, 255);
+        }
+        
         html,
         body {
             height: 100%;
@@ -151,6 +187,14 @@
 </head>
 
 <body id="bodd" class="text-center">
+
+    <div id="inform" class="inform">
+        <a id="inform_in" class="inform_in"></a>
+    </div>
+
+    <div class="language" id="language" onclick="language();">
+        English
+    </div>
     <video id="playv">
         <source preload src="./registered.mp4" type="video/mp4">
     </video>
@@ -172,7 +216,7 @@
             <button class="btn btn-link" id="info"><i class="fa fa-lg fa-info"></i></button>
             <button class="btn btn-link" id="refresh"><i class="fa fa-lg fa-sync-alt"></i></button>
         </div>
-        <h1 class="h3 mb-3 fw-normal">答案注册平台</h1>
+        <h1 class="h3 mb-3 fw-normal" id="titlee">答案注册平台</h1>
         <label for="room" class="sr-only">用户名</label>
         <input type="text" name="room" id="uname" class="form-control" placeholder="用户名" required autofocus>
         <label for="pass" class="sr-only">邮箱</label>
@@ -186,7 +230,7 @@
         <div class="d-grid">
             <button class="btn btn-lg btn-primary" id="login" onclick="clicki();" type="button">注册</button>
             <br>
-            <h7 onclick="goit();"><u>前往登录</u></h7>
+            <h7 onclick="goit();"><u id="register">前往登录</u></h7>
             <script>
                 function goit() {
                     window.location = "./login.html";
@@ -324,6 +368,8 @@
             //password
             if (document.getElementById("uname").value != "" && document.getElementById("uname").value != null && document.getElementById("password").value != "" && document.getElementById("password").value != null && document.getElementById("email").value != "" && document.getElementById("email").value != null && document.getElementById("cpassword").value != "" && document.getElementById("cpassword").value != null) {
                 createParseUser();
+            } else {
+                inform("用户名，邮箱或密码不能为空！", 4000);
             }
         }
 
@@ -369,6 +415,32 @@
                 alert(`Error: ${error.message}`);
             }
         }
+    </script>
+    <script>
+        function languagechenge() {
+            languagee = localStorage.getItem("languagee");
+            if (languagee == "EN") {
+                document.getElementById("titlee").innerHTML = 'Registered';
+                document.getElementById("email").placeholder = 'E-mail';
+                document.getElementById("password").placeholder = 'password';
+                document.getElementById("uname").placeholder = 'UserName';
+                document.getElementById("cpassword").placeholder = 'confirm password';
+                document.getElementById("login").innerHTML = 'Registered';
+                document.getElementById("register").innerHTML = 'Login';
+                document.title = "answer-Login";
+            }
+            if (languagee == "CN") {
+                document.getElementById("titlee").innerHTML = '答案注册平台';
+                document.getElementById("email").placeholder = '邮箱';
+                document.getElementById("password").placeholder = '密码';
+                document.getElementById("uname").placeholder = '用户名';
+                document.getElementById("cpassword").placeholder = '确认密码';
+                document.getElementById("login").innerHTML = '注册';
+                document.getElementById("register").innerHTML = '前往登陆';
+                document.title = "答案登录平台";
+            }
+        }
+        loadee();
     </script>
 </body>
 
