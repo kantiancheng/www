@@ -55,7 +55,7 @@
     </style>
 </head>
 
-<body onload="loade();">
+<body onload="loadee();">
     <h1>
         计算器 <strong><u>Math</u></strong>
     </h1>
@@ -64,11 +64,11 @@
         用户名
     </div>
 
-    <div class="logout" onclick="clearer();">
+    <div id="logout" class="logout" onclick="clearer();">
         退出登录
     </div>
 
-    <div class="goback" onclick="window.location='./main.html'">
+    <div id="goback" class="goback" onclick="window.location='./main.html'">
         返回
     </div>
 
@@ -466,6 +466,21 @@
             //wv = "0";
             ww = false;
             lastkey = "=";
+        }
+    </script>
+    <script>
+        function languagechenge() {
+            languagee = localStorage.getItem("languagee");
+            if (languagee == "EN") {
+                document.title = "Calculator";
+                document.getElementById("logout").innerHTML = 'logout';
+                document.getElementById("goback").innerHTML = 'GoBack';
+            }
+            if (languagee == "CN") {
+                document.title = "数学计算器";
+                document.getElementById("logout").innerHTML = '退出登录';
+                document.getElementById("goback").innerHTML = '返回';
+            }
         }
     </script>
 </body>
