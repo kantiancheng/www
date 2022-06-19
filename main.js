@@ -1,4 +1,5 @@
 beforeLOAD();
+var languagee;
 var uname;
 
 //侧导航栏颜色变化
@@ -17,9 +18,10 @@ function beforeLOAD() {
     }
 }
 
-function loade() {
+function loadee() {
     uname = localStorage.getItem('uname');
     document.getElementById("uname").innerHTML = uname;
+    languagechenge();
 }
 
 function clearer() {
@@ -29,4 +31,20 @@ function clearer() {
     } else {
 
     }
+}
+
+function language() {
+    languagee = localStorage.getItem("languagee");
+    if (languagee == null) {
+        localStorage.setItem("languagee", "EN");
+    }
+    if (languagee == "EN") {
+        document.getElementById("language").innerHTML = "English";
+        localStorage.setItem("languagee", "CN");
+    }
+    if (languagee == "CN") {
+        document.getElementById("language").innerHTML = "中文";
+        localStorage.setItem("languagee", "EN");
+    }
+    languagechenge();
 }
