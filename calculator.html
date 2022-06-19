@@ -1,0 +1,473 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    <title>答案网-计算器</title>
+    <link href="./styles.css" rel="stylesheet">
+    <script src="./main.js"></script>
+    <style>
+        .aa {
+            height: 140px;
+            background-color: rgb(82, 80, 86);
+            color: rgb(255, 255, 255);
+            font-size: 70px;
+            text-align: right;
+            padding: 15px;
+        }
+        
+        .a1 {
+            height: 100px;
+            width: 110px;
+            font-size: 50px;
+            vertical-align: middle;
+            text-align: center;
+            background-color: rgb(99, 97, 103);
+            color: rgb(255, 255, 255);
+        }
+        
+        .a2 {
+            height: 100px;
+            width: 110px;
+            font-size: 50px;
+            vertical-align: middle;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            background-color: rgb(242, 162, 60);
+        }
+        
+        .a3 {
+            height: 100px;
+            width: 110px;
+            font-size: 50px;
+            vertical-align: middle;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            background-color: rgb(125, 124, 129);
+        }
+        
+        table {
+            margin: 0 auto;
+            background-color: rgb(82, 80, 86);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body onload="loade();">
+    <h1>
+        计算器 <strong><u>Math</u></strong>
+    </h1>
+
+    <div class="uname" id="uname">
+        用户名
+    </div>
+
+    <div class="logout" onclick="clearer();">
+        退出登录
+    </div>
+
+    <div class="goback" onclick="window.location='./main.html'">
+        返回
+    </div>
+
+    <div id="mobile">
+        <br>
+        <br>
+        <br>
+        <table>
+            <!--表格开始-->
+            <tr>
+                <td class="aa" colspan="4" id="key1">0
+                    <!--计算器显示屏-->
+                </td>
+                <tr>
+                    <!--第一排-->
+                    <td id="bn_ac" class="a1" onmousedown="ac_bnmousedown('bn_ac')" onmouseup="ac_bnmouseup('bn_ac')" onclick="bnac()">AC</td>
+                    <!--A/AC键-->
+
+                    <td id="bn_addsub" class="a1" onmousedown="ac_bnmousedown('bn_addsub')" onmouseup="ac_bnmouseup('bn_addsub')" onclick="negi()">+/-</td>
+                    <!--+/-键-->
+
+                    <td id="bn_%" class="a1" onmousedown="ac_bnmousedown('bn_%')" onmouseup="ac_bnmouseup('bn_%')" onclick="per()">%</td>
+                    <!--%键-->
+
+                    <td id="bn_÷" class="a2" onmousedown="aa_bnmousedown('bn_÷')" onmouseup="aa_bnmouseup('bn_÷')" onclick="div()">÷</td>
+                    <!--÷键-->
+                </tr>
+                <tr>
+                    <!--第二排-->
+                    <td id="bn_7" class="a3" onmousedown="ab_bnmousedown('bn_7')" onmouseup="ab_bnmouseup('bn_7')" onclick="bnclick('7')">7</td>
+                    <!--7键-->
+
+                    <td id="bn_8" class="a3" onmousedown="ab_bnmousedown('bn_8')" onmouseup="ab_bnmouseup('bn_8')" onclick="bnclick('8')">8</td>
+                    <!--8键-->
+
+                    <td id="bn_9" class="a3" onmousedown="ab_bnmousedown('bn_9')" onmouseup="ab_bnmouseup('bn_9')" onclick="bnclick('9')">9</td>
+                    <!--9键-->
+
+                    <td id="bn_X" class="a2" onmousedown="aa_bnmousedown('bn_X')" onmouseup="aa_bnmouseup('bn_X')" onclick="mul()">x</td>
+                    <!--X键-->
+                </tr>
+                <!--第三排-->
+                <td id="bn_4" class="a3" onmousedown="ab_bnmousedown('bn_4')" onmouseup="ab_bnmouseup('bn_4')" onclick="bnclick('4')">4</td>
+                <!--4键-->
+
+                <td id="bn_5" class="a3" onmousedown="ab_bnmousedown('bn_5')" onmouseup="ab_bnmouseup('bn_5')" onclick="bnclick('5')">5</td>
+                <!--5键-->
+
+                <td id="bn_6" class="a3" onmousedown="ab_bnmousedown('bn_6')" onmouseup="ab_bnmouseup('bn_6')" onclick="bnclick('6')">6</td>
+                <!--6键-->
+
+                <td id="bn_-" class="a2" onmousedown="aa_bnmousedown('bn_-')" onmouseup="aa_bnmouseup('bn_-')" onclick="sub()">-
+                </td>
+                <!---键-->
+                <tr>
+                    <!--第四排-->
+                    <td id="bn_1" class="a3" onmousedown="ab_bnmousedown('bn_1')" onmouseup="ab_bnmouseup('bn_1')" onclick="bnclick('1')">1</td>
+                    <!--1键-->
+
+                    <td id="bn_2" class="a3" onmousedown="ab_bnmousedown('bn_2')" onmouseup="ab_bnmouseup('bn_2')" onclick="bnclick('2')">2</td>
+                    <!--2键-->
+
+                    <td id="bn_3" class="a3" onmousedown="ab_bnmousedown('bn_3')" onmouseup="ab_bnmouseup('bn_3')" onclick="bnclick('3')">3</td>
+                    <!--3键-->
+
+                    <td id="bn_+" class="a2" onmousedown="aa_bnmousedown('bn_+')" onmouseup="aa_bnmouseup('bn_+')" onclick="add()">+</td>
+                    <!--+键-->
+                </tr>
+                <!--第五排-->
+                <td id="bn_0" class="a3" onmousedown="ab_bnmousedown('bn_0')" onmouseup="ab_bnmouseup('bn_0')" onclick="bnclick('0')" colspan="2">0</td>
+                <!--0键-->
+
+                <td id="bn_." class="a3" onmousedown="ab_bnmousedown('bn_.')" onmouseup="ab_bnmouseup('bn_.')" onclick="d('.')">
+                    .</td>
+                <!--.键-->
+
+                <td id="bn_=" class="a2" onmousedown="aa_bnmousedown('bn_=')" onmouseup="aa_bnmouseup('bn_=')" onclick="equal()">=</td>
+                <!--=键-->
+                <tr>
+        </table>
+    </div>
+    <div id="pc">
+
+    </div>
+    <script>
+        var lastkey = "0";
+        var vw = "0";
+        var vv = "0";
+        var wv = "0";
+        var ww = false;
+        var nn = "0";
+        var hh = "0";
+        var tt = "0";
+
+        function ac_bnmousedown(bn_1) {
+            //点按颜色-第一套
+            var tbh = document.getElementById(bn_1);
+            tbh.style.setProperty("background-color", "rgb(125, 124, 129)"); //背景颜色
+            return;
+        }
+
+        function ac_bnmouseup(bn_1) {
+            //松开颜色-第一套
+            var tbh = document.getElementById(bn_1);
+            tbh.style.setProperty("background-color", "rgb(99, 97, 103)"); //背景颜色
+            return;
+        }
+
+        function ab_bnmousedown(bn_2) {
+            //点按颜色-第二套
+            var tbh = document.getElementById(bn_2);
+            tbh.style.setProperty("background-color", "rgb(177, 177, 179)"); //背景颜色
+            return;
+        }
+
+        function ab_bnmouseup(bn_2) {
+            //松开颜色-第二套
+            var tbh = document.getElementById(bn_2);
+            tbh.style.setProperty("background-color", "rgb(125, 124, 129)"); //背景颜色
+            return;
+        }
+
+        function aa_bnmousedown(bn_3) {
+            //点按颜色-第三套
+            var tbh = document.getElementById(bn_3);
+            tbh.style.setProperty("background-color", "rgb(193, 128, 46)"); //背景颜色
+            return;
+        }
+
+        function aa_bnmouseup(bn_3) {
+            //松开颜色-第三套
+            var tbh = document.getElementById(bn_3);
+            tbh.style.setProperty("background-color", "rgb(242, 162, 60)"); //背景颜色
+            return;
+        }
+
+        function bnclick(key) {
+            //数字显示
+            if (lastkey == "=") {
+                vw = key;
+                lastkey = "0";
+            } else if (vw == '0') {
+                if (key == '0') return;
+                else vw = key;
+            } else vw = vw + key;
+            var tbh = document.getElementById("key1");
+            tbh.innerHTML = vw;
+            document.getElementById("bn_ac").innerHTML = "C";
+        }
+
+        function bnac() {
+            //归零
+            var tbh = document.getElementById("key1");
+            document.getElementById("bn_ac").innerHTML = "AC";
+            tbh.innerHTML = "0";
+            vw = "0";
+            wv = "0";
+            ww = false;
+            vv = "0";
+            if (vw == "0") document.getElementById("bn_ac").innerHTML = "AC";
+            else vw = vw
+            ww = false;
+        }
+
+        function negi() {
+            //正负
+            var tbh = document.getElementById("key1");
+            tbh.innerHTML = vw = -vw;
+        }
+
+        function per() {
+            //百分比
+            var tbh = document.getElementById("key1");
+            tbh.innerHTML = vw = vw / 100;
+        }
+
+        function add() {
+            //加
+            if (wv == "0") {
+                vv = vw;
+                vw = "0";
+                wv = "add";
+                ww = false;
+            } else if (wv == "add") {
+                vw = Number(vv) + Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "add";
+                ww = false;
+            } else if (wv == "sub") {
+                vw = Number(vv) - Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "add";
+                ww = false;
+            } else if (wv == "mul") {
+                vw = Number(vv) * Number(vw);
+                if (hh == "add") {
+                    vw = vw + Number(nn);
+                    nn = "0";
+                    hh = "0";
+                }
+                if (hh == "sub") {
+                    vw = Number(nn) - vw;
+                    nn = "0";
+                    hh = "0";
+                }
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "add";
+                ww = false;
+            } else if (wv == "div") {
+                vw = Number(vv) / Number(vw);
+                if (hh == "add") {
+                    vw = vw + Number(nn);
+                    nn = "0";
+                    hh = "0";
+                }
+                if (hh == "sub") {
+                    vw = Number(nn) - vw;
+                    nn = "0";
+                    hh = "0";
+                }
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "add";
+                ww = false;
+            }
+        }
+
+        function sub() {
+            //减
+            if (wv == "0") {
+                vv = vw;
+                vw = "0";
+                wv = "sub";
+                ww = false;
+            } else if (wv == "sub") {
+                vw = Number(vv) - Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "sub";
+                ww = false;
+            } else if (wv == "add") {
+                vw = Number(vv) + Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "sub";
+                ww = false;
+            } else if (wv == "mul") {
+                vw = Number(vv) * Number(vw);
+                if (hh == "add") {
+                    vw = vw + Number(nn);
+                    nn = "0";
+                    hh = "0";
+                }
+                if (hh == "sub") {
+                    vw = Number(nn) - vw;
+                    nn = "0";
+                    hh = "0";
+                }
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "sub";
+                ww = false;
+            } else if (wv == "div") {
+                vw = Number(vv) / Number(vw);
+                if (hh == "add") {
+                    vw = vw + Number(nn);
+                    nn = "0";
+                    hh = "0";
+                }
+                if (hh == "sub") {
+                    vw = Number(nn) - vw;
+                    nn = "0";
+                    hh = "0";
+                }
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "sub";
+                ww = false;
+            }
+        }
+
+        function mul() {
+            //乘
+            if (wv == "0") {
+                vv = vw;
+                vw = "0";
+                wv = "mul";
+                ww = false;
+            } else if (wv == "mul") {
+                vw = Number(vv) * Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "mul";
+                ww = false;
+            } else if (wv == "div") {
+                vw = Number(vv) / Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "mul";
+                ww = false;
+            } else if ((wv == "add") || (wv == "sub")) {
+                hh = wv;
+                nn = vv;
+                vv = vw;
+                vw = "0";
+                wv = "mul";
+            }
+        }
+
+        function div() {
+            //除
+            if (wv == "0") {
+                vv = vw;
+                vw = "0";
+                wv = "div";
+                ww = false;
+            } else if (wv == "div") {
+                vw = Number(vv) / Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "div";
+                ww = false;
+            } else if (wv == "mul") {
+                vw = Number(vv) * Number(vw);
+                document.getElementById("key1").innerHTML = vw;
+                vv = vw;
+                vw = "0";
+                wv = "div";
+                ww = false;
+            } else if ((wv == "add") || (wv == "sub")) {
+                hh = wv;
+                nn = vv;
+                vv = vw;
+                vw = "0";
+                wv = "div";
+            }
+        }
+
+        function d() {
+            //点
+            if (ww) return;
+            ww = true;
+            vw = vw + ".";
+            var tbh = document.getElementById("key1");
+            tbh.innerHTML = vw;
+            document.getElementById("bn_ac").innerHTML = "C";
+        }
+
+        function equal() {
+            //等于
+            var tbh = document.getElementById("key1");
+            if (wv == "add") vv = Number(vw) + Number(vv);
+            if (wv == "sub") vv = Number(vv) - Number(vw);
+            if (wv == "mul") {
+                vv = Number(vv) * Number(vw);
+                if (hh == "add") {
+                    vv = vv + Number(nn);
+                    nn = "0";
+                    hh = "0";
+                }
+                if (hh == "sub") {
+                    vv = Number(nn) - vv;
+                    nn = "0";
+                    hh = "0";
+                }
+            }
+            if (wv == "div") {
+                vv = Number(vv) / Number(vw);
+                if (hh == "add") {
+                    vv = vv + Number(nn);
+                    nn = "0";
+                    hh = "0";
+                }
+                if (hh == "sub") {
+                    vv = Number(nn) - vv;
+                    nn = "0";
+                    hh = "0";
+                }
+            }
+            tbh.innerHTML = vv;
+            //wv = "0";
+            ww = false;
+            lastkey = "=";
+        }
+    </script>
+</body>
+
+</html>
