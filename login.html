@@ -2,14 +2,50 @@
 <html>
 
 <head>
+    <script>
+        var pagee = "no";
+    </script>
     <meta charset="UTF-8">
     <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>答案登陆平台</title>
+    <title>答案登录平台</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
     <script src="https://fastly.jsdelivr.net/gh/kantiancheng/live2d-widget@master/live2d.min.js"></script>
+    <script src="./main.js"></script>
     <style>
+        .inform {
+            position: fixed;
+            text-align: center;
+            width: auto;
+            background-color: rgba(0, 0, 0, 0.606);
+            z-index: 10;
+            top: 18%;
+            left: 50%;
+            transform: translateX(-50%);
+            /* transform: rotate(60deg);*/
+        }
+        
+        .inform_in {
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 3px;
+            margin-bottom: 3px;
+            font-size: xx-large;
+            color: rgb(255, 255, 255);
+        }
+        
+        .language {
+            background-color: rgb(0, 68, 255);
+            z-index: 10;
+            left: 1%;
+            top: 1%;
+            border-radius: 4px;
+            position: fixed;
+            font-size: xx-large;
+            color: rgb(255, 255, 255);
+        }
+        
         html,
         body {
             height: 100%;
@@ -143,6 +179,14 @@
 </head>
 
 <body class="text-center" onload="cookiei();">
+
+    <div id="inform" class="inform">
+        <a id="inform_in" class="inform_in"></a>
+    </div>
+
+    <div class="language" id="language" onclick="language();">
+        English
+    </div>
     <form class="form-signin" method="post">
         <div id="stage">
             <div id="inner">
@@ -158,20 +202,20 @@
             <button class="btn btn-link" id="info"><i class="fa fa-lg fa-info"></i></button>
             <button class="btn btn-link" id="refresh"><i class="fa fa-lg fa-sync-alt"></i></button>
         </div>
-        <h1 class="h3 mb-3 fw-normal">答案登陆平台</h1>
+        <h1 class="h3 mb-3 fw-normal" id="titlee">答案登录平台</h1>
         <label for="room" class="sr-only">邮箱</label>
         <input type="text" name="room" id="email" class="form-control" placeholder="邮箱" required autofocus>
         <label for="pass" class="sr-only">密码</label>
         <input type="password" name="pass" id="password" class="form-control" placeholder="密码" required>
         <div class="checkbox mb-4">
             <label>
-			<input id="remenber" type="checkbox" value="remember-me"> 记住我
+			<input id="remenber" type="checkbox" value="remember-me"><a id="remenberr">记住我</a>
 		</label>
         </div>
         <div class="d-grid">
-            <button class="btn btn-lg btn-primary" onclick="clicki();" type="button">登录</button>
+            <button class="btn btn-lg btn-primary" onclick="clicki();" type="button" id="buttenl">登录</button>
             <br>
-            <h7 onclick="goit();"><u>前往注册</u></h7>
+            <h7 onclick="goit();"><u id="register">前往注册</u></h7>
             <script>
                 function goit() {
                     window.location = "./registered.html";
@@ -309,11 +353,16 @@
             //password
             if (document.getElementById("email").value != "" && document.getElementById("email").value != null && document.getElementById("password").value != "" && document.getElementById("password").value != null) {
                 retrieveUser();
+            } else {
+                inform("用户名或密码不能为空！", 4000);
             }
         }
 
         //登录-手动
         async function retrieveUser() {
+            setTimeout(function() {
+                inform("用户不存在或网络超时!", 4000);
+            }, 5000);
             //Create your Parse Query, and define the class it will be searched
             const query = new Parse.Query("User");
             try {
@@ -339,6 +388,13 @@
                             localStorage.setItem('uname', null);
                         }
                         window.location = "./main.html";
+                    } else {
+                        if (languagee == "EN") {
+                            inform("Password is incorrect!", 4000);
+                        }
+                        if (languagee == "CN") {
+                            inform("密码错误!", 4000);
+                        }
                     }
 
                 }
@@ -356,6 +412,30 @@
                 document.getElementById("remenber").checked = true;
             }
         }
+    </script>
+    <script>
+        function languagechenge() {
+            languagee = localStorage.getItem("languagee");
+            if (languagee == "EN") {
+                document.getElementById("titlee").innerHTML = 'Login';
+                document.getElementById("email").placeholder = 'E-mail';
+                document.getElementById("password").placeholder = 'password';
+                document.getElementById("remenberr").innerHTML = 'Remenbe Me';
+                document.getElementById("buttenl").innerHTML = 'Login';
+                document.getElementById("register").innerHTML = 'Register';
+                document.title = "answer-Login";
+            }
+            if (languagee == "CN") {
+                document.getElementById("titlee").innerHTML = '答案登录平台';
+                document.getElementById("email").placeholder = '邮箱';
+                document.getElementById("password").placeholder = '密码';
+                document.getElementById("remenberr").innerHTML = '记住我';
+                document.getElementById("buttenl").innerHTML = '登录';
+                document.getElementById("register").innerHTML = '前往注册';
+                document.title = "答案登录平台";
+            }
+        }
+        loadee();
     </script>
 </body>
 
