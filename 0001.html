@@ -9,7 +9,7 @@
     <link href="./styles.css" rel="stylesheet">
 </head>
 
-<body onload="loade();">
+<body onload="loadee();">
 
     <h1>
         wordly wise 3000 <strong><u>Grade 8</u></strong>
@@ -19,11 +19,11 @@
         用户名
     </div>
 
-    <div class="logout" onclick="clearer();">
+    <div id="logout" class="logout" onclick="clearer();">
         退出登录
     </div>
 
-    <div class="goback" onclick="window.location='./main.html'">
+    <div id='goback' class="goback" onclick="window.location='./main.html'">
         返回
     </div>
 
@@ -39,7 +39,7 @@
                         <table class="main-table" id="table" oninput="chenge();">
                             <thead>
                                 <tr id="top_bar">
-                                    <th class="fixed-side" scope="col" style="background-color: rgb(0, 0, 0); color: aliceblue;">大题/小题</th>
+                                    <th id="0001_t" class="fixed-side" scope="col" style="background-color: rgb(0, 0, 0); color: aliceblue;">大题/小题</th>
                                     <th style="background-color: rgb(33, 33, 33); color: aliceblue;" contenteditable="true" scope="col">1</th>
                                     <th style="background-color: rgb(33, 33, 33); color: aliceblue;" contenteditable="true" scope="col">2</th>
                                     <th style="background-color: rgb(33, 33, 33); color: aliceblue;" contenteditable="true" scope="col">3</th>
@@ -929,6 +929,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function languagechenge() {
+            languagee = localStorage.getItem("languagee");
+            if (languagee == "EN") {
+                document.getElementById("logout").innerHTML = 'logout';
+                document.getElementById("goback").innerHTML = 'GoBack';
+            }
+            if (languagee == "CN") {
+                document.getElementById("logout").innerHTML = '退出登录';
+                document.getElementById("goback").innerHTML = '返回';
+            }
+        }
+    </script>
 </body>
 
 </html>
