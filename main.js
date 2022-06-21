@@ -28,6 +28,15 @@ function loadee() {
         uname = localStorage.getItem('uname');
         document.getElementById("uname").innerHTML = uname;
     }
+    languagee = localStorage.getItem("languagee");
+    try {
+        if (languagee == "EN") {
+            document.getElementById("language").innerHTML = "中文";
+        }
+        if (languagee == "CN") {
+            document.getElementById("language").innerHTML = "English";
+        }
+    } catch (error) {}
     document.getElementById("inform").hidden = true;
     languagechenge();
 }
